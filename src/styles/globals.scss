@@ -1,0 +1,140 @@
+@import "./breakpoints";
+
+:root {
+  // General colors
+  --primary: #552dc5;
+  --secondary: #442b8c;
+
+  --gray-100: #eeeeee;
+
+  --green-100: ##e1f5d5;
+  --green-400: #219653;
+  --green-500: #187841;
+
+  --gray-200: #a5b4cb;
+  --gray-400: #7d8da6;
+
+  --blue-300: #8ea7e4;
+  --blue-800: #141736;
+
+  --yellow-100: #fff8e4;
+
+  --orange-400: #e99a00;
+
+  --red-400: #fe6470;
+
+  // Base colors
+  --white: #ffffff;
+  --black: #000000;
+
+  --button-disabled: #e3dfef;
+}
+
+:focus {
+  outline: none;
+}
+
+html {
+  background-color: var(--white);
+  width: 100%;
+}
+
+body {
+  width: 100%;
+  overflow-x: hidden;
+  color: var(--black);
+  -webkit-font-smoothing: antialiased;
+}
+
+// Styles for mobiles
+@include media-xs {
+  h1 {
+    font-size: 26px;
+    line-height: 32px;
+    margin: 0;
+    font-weight: 600;
+  }
+
+  h2 {
+    font-size: 24px;
+    line-height: 29px;
+    margin: 0;
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: 20px;
+    margin: 0;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 21px;
+  }
+}
+
+// Styles for large mobiles
+@include media-sm {
+  h1 {
+    font-size: 36px;
+    line-height: 42px;
+  }
+
+  h2 {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+
+  p {
+    font-size: 17px;
+    line-height: 22px;
+  }
+}
+
+// Styles for tablets
+@include media-md {
+  h1 {
+    font-size: 40px;
+    line-height: 48px;
+  }
+
+  h2 {
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+// Styles for desktops
+@include media-lg {
+  h1 {
+    font-size: 44px;
+    line-height: 58.09px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 21.78px;
+  }
+}
