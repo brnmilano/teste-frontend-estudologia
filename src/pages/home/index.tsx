@@ -1,12 +1,13 @@
+import TabsComponent from "@/components/Tabs";
+import { Box } from "@mui/material";
 import { memo } from "react";
+import styles from "./styles.module.scss";
 
 function Home() {
   return (
-    <div>
-      <h1>Bem vindo!</h1>
-
-      <h2>Home</h2>
-    </div>
+    <Box className={styles.container}>
+      <TabsComponent />
+    </Box>
   );
 }
 

@@ -1,0 +1,22 @@
+.tabsRoot {
+  .buttonTabRoot {
+    color: var(--disabled);
+    font-family: "Chivo", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-transform: none;
+  }
+}
+
+.tabsRoot .buttonTabRoot.selectedTab {
+  color: var(--primary);
+}
+
+.tabsRoot .indicator {
+  background-color: var(--primary);
+  border-radius: 6px;
+}
+
+.tabsRoot .flexContainer {
+  gap: 1.5rem;
+}

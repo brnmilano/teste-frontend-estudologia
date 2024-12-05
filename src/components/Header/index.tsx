@@ -1,12 +1,13 @@
 import { useRouter } from "next/router";
 import { memo } from "react";
-import styles from "./styles.module.scss";
+import { Box } from "@mui/material";
 import Image from "next/image";
 import Logo from "../../../public/logo.svg";
 import NotificationIcon from "../../../public/notification.svg";
 import MessageIcon from "../../../public/message.svg";
 import SearchIcon from "../../../public/search.svg";
 import toast from "react-hot-toast";
+import styles from "./styles.module.scss";
 
 function Header() {
   const router = useRouter();
@@ -19,24 +20,24 @@ function Header() {
     <>
       {router.pathname === "/home" && (
         <header className={styles.headerHomeContainer}>
-          <div className={styles.iconsWrapper}>
-            <div onClick={featureUnderDevelopment}>
+          <Box className={styles.iconsWrapper}>
+            <Box onClick={featureUnderDevelopment}>
               <Image src={NotificationIcon} alt="Logo" width={24} height={24} />
-            </div>
+            </Box>
 
-            <div onClick={featureUnderDevelopment}>
+            <Box onClick={featureUnderDevelopment}>
               <Image src={MessageIcon} alt="Logo" width={24} height={24} />
-            </div>
+            </Box>
 
-            <div
+            <Box
               className={styles.searchWrapper}
               onClick={featureUnderDevelopment}
             >
               <Image src={SearchIcon} alt="Logo" width={22} height={22} />
 
               <p>Procurar</p>
-            </div>
-          </div>
+            </Box>
+          </Box>
         </header>
       )}
 
