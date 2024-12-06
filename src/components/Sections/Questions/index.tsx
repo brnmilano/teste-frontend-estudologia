@@ -1,9 +1,10 @@
 import { Box } from "@mui/material";
+import Card from "../../Card";
 
 export default function Questions() {
   return (
     <Box>
-      <h1>Questões</h1>
+      <Card />
     </Box>
   );
 }
