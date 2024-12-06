@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  gap: 2rem;
+
+  .cardWrapper {
+    padding: 1.8125rem;
+    max-width: 20rem;
+    border: 1px solid var(--gray-100);
+    border-radius: 20px;
+
+    .icon {
+      margin-bottom: 1.5625rem;
+    }
+
+    .titleAndStatusWrapper {
+      margin-bottom: 1.25rem;
+
+      .title {
+        font-size: 1rem;
+        line-height: 1.19rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .status {
+        display: inline-block;
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        text-align: center;
+        white-space: nowrap;
+        font-weight: 700;
+      }
+
+      .answered {
+        background-color: var(--green-100);
+        color: var(--green-400);
+      }
+
+      .notAnswered {
+        background-color: var(--yellow-100);
+        color: var(--orange-400);
+      }
+    }
+
+    .questions {
+      color: var(--gray-400);
+      font-size: 0.875rem;
+      margin-bottom: 1.375rem;
+    }
+  }
+}

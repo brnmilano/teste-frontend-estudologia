@@ -1,0 +1,55 @@
+.button {
+  &.buttonOutlined {
+    display: flex;
+    justify-content: center;
+    background-color: var(--primary);
+    border-radius: 20px;
+    border: 1px solid transparent;
+    color: var(--white);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: none;
+    transition: all 0.2s ease;
+    height: 2.3125rem;
+
+    &:hover {
+      background-color: var(--secondary);
+      border: 1px solid transparent;
+    }
+  }
+
+  &.buttonSizeLarge {
+    width: 100%;
+  }
+
+  &.butonSizeMedium {
+    padding: 0.625rem 1.5rem;
+    min-height: 4.5rem;
+    min-width: 23rem;
+  }
+
+  .progressBar {
+    position: absolute;
+  }
+
+  .loading {
+    background-color: var(--blue-500);
+  }
+}
+
+.secondary {
+  &.buttonOutlined {
+    background-color: transparent;
+    border-radius: 20px;
+    border: 1px solid var(--primary);
+    color: var(--white);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: none;
+
+    &:hover {
+      background-color: transparent;
+      border: 1px solid var(--primary);
+    }
+  }
+}
