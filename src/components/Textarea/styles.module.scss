@@ -1,0 +1,45 @@
+.textFieldRoot {
+  border-radius: 0.3125rem;
+  color: var(--black);
+  font-size: 1rem;
+  font-family: "Chivo", sans-serif !important;
+  background-color: var(--background);
+  outline: none !important;
+
+  > div {
+    font-family: "Chivo", sans-serif !important;
+
+    &:focus-visible {
+      outline: none !important;
+    }
+
+    &:hover {
+      outline: none !important;
+    }
+  }
+}
+
+.inputError {
+  border: 1px solid var(--red-400) !important;
+}
+
+.errorMessage {
+  color: var(--red-400);
+  margin-top: -5px;
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    visibility 0.5s,
+    opacity 0.5s linear;
+  position: absolute;
+  bottom: -20px;
+
+  p {
+    font-size: 0.75rem !important;
+  }
+}
+
+.showingErrorMessage {
+  visibility: visible;
+  opacity: 1;
+}

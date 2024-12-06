@@ -5,8 +5,6 @@
   --primary: #552dc5;
   --secondary: #442b8c;
 
-  --gray-100: #eeeeee;
-
   --green-100: #e1f5d5;
   --green-400: #219653;
   --green-500: #187841;
@@ -30,6 +28,10 @@
   --black: #000000;
 
   --disabled: #e3dfef;
+  --background: #f3f3f3;
+
+  // Font family
+  --font-family: "Chivo", sans-serif;
 }
 
 :focus {
