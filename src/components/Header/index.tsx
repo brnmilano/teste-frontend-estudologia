@@ -41,7 +41,7 @@ function Header() {
         </header>
       )}
 
-      {router.pathname === "/questoes" && (
+      {router.pathname === `/questoes/[id]` && (
         <header className={styles.headerNotHomeContainer}>
           <Image src={Logo} alt="Logo" width={107} height={18} />
         </header>

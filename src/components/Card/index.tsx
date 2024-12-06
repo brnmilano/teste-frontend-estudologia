@@ -1,10 +1,25 @@
+import { useRouter } from "next/router";
 import { memo } from "react";
 import { questionsCard } from "@/utils/questions-utils";
 import { Button } from "../Button";
 import styles from "./styles.module.scss";
 import clsx from "clsx";
+import { useCommon } from "@/hooks/useCommon";
+import { set } from "react-hook-form";
 
 function Card() {
+  const { loading, setLoading } = useCommon();
+
+  const router = useRouter();
+
+  const navigationForQuestions = async (id: number) => {
+    // setLoading(true);
+
+    // await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    router.push(`/questoes/${id}`);
+  };
+
   return (
     <div className={styles.container}>
       {questionsCard.map((question, index) => (
@@ -33,9 +48,8 @@ function Card() {
           </div>
 
           <Button
-            onClick={() => {
-              console.log(question.id);
-            }}
+            onClick={() => navigationForQuestions(question.id)}
+            loading={loading}
           >
             Responder
           </Button>

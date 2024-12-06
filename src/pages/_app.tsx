@@ -1,9 +1,11 @@
-import Container from "@/components/Container/Container";
 import type { AppProps } from "next/app";
 import { Chivo } from "next/font/google";
-import "../styles/index.scss";
-import Header from "@/components/Header";
+import { QuestionsProvider } from "@/hooks/useQuestions";
+import { CommonProvider } from "@/hooks/useCommon";
 import { Toaster } from "react-hot-toast";
+import Container from "@/components/Container/Container";
+import Header from "@/components/Header";
+import "../styles/index.scss";
 
 const chivo = Chivo({
   weight: ["400", "500", "700"],
@@ -13,11 +15,15 @@ const chivo = Chivo({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <Container className={chivo.className}>
-      <Toaster position="top-center" />
+      <CommonProvider>
+        <QuestionsProvider>
+          <Toaster position="top-center" />
 
-      <Header />
+          <Header />
 
-      <Component {...pageProps} />
+          <Component {...pageProps} />
+        </QuestionsProvider>
+      </CommonProvider>
     </Container>
   );
 }
