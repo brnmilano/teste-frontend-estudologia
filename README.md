@@ -2,7 +2,9 @@
 
 ## Iniciando o projeto
 
-- Para iniciar o projeto, garanta que você possui uma versão atualizada do [yarn](https://classic.yarnpkg.com/lang/en/docs/install/#debian-stable). Após isso, instale as dependências rodando no terminal o seguinte comando:
+- 
+
+- Para iniciar o projeto, garanta que você possui uma versão atualizada do [yarn](https://classic.yarnpkg.com/lang/en/docs/install/#debian-stable) e do [node](https://nodejs.org/pt) (v20). Após isso, instale as dependências rodando no terminal o seguinte comando:
 
   ```
   yarn
