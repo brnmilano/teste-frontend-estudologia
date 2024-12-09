@@ -32,10 +32,12 @@
 
       .answered {
         background-color: var(--green-100);
+        color: var(--green-400);
       }
 
       .notAnswered {
         background-color: var(--yellow-100);
+        color: var(--orange-400);
       }
     }
 

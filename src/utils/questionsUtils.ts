@@ -1,7 +1,7 @@
 import { createElement } from "react";
 import type { QuestionsProps } from "@/types/questions";
-import PencilIconSvg from "@/Icons/PencilIcon";
 import { contentBookOfQuestions } from "./questionsLists";
+import PencilIconSvg from "@/Icons/PencilIcon";
 
 const questionsQuantity = contentBookOfQuestions.map(
   (book) => book.questions.length

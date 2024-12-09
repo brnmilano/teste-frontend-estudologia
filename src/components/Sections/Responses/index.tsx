@@ -1,42 +1,31 @@
 import Text from "@/components/Text";
 import { useQuestions } from "@/hooks/useQuestions";
-import { Box, Divider } from "@mui/material";
+import { Box } from "@mui/material";
+import TabsComponent from "@/components/Tabs/CustomTabs";
 import styles from "./styles.module.scss";
-import MyTabs from "@/components/NewTabs";
-import { contentBookOfQuestions } from "@/utils/questionsLists";
-import PencilIconSvg from "@/Icons/PencilIcon";
 
 export default function Responses() {
   const { questionBook } = useQuestions();
 
-  const questionBookFindById = questionBook.find((item) => item.id === 1);
+  const firstThreeBooks = questionBook.slice(0, 3);
 
-  console.log(questionBookFindById);
+  const bookTitles = firstThreeBooks.map((book) => book.title);
 
-  const renderBooksTitle = () => {
-    return contentBookOfQuestions.map((book, index) => (
-      <Box className={styles.bookTitles} key={`${book.id}_${index}`}>
-        <Text
-          variant="h1"
-          color="var(--primary)"
-          fontSize={18}
-          fontWeight={700}
-        >
-          <PencilIconSvg color="var(--primary)" />
+  const bookResponses = firstThreeBooks.map((book) => {
+    return book.questions.map((question) => ({
+      question: question.question,
+      answer: question.answer,
+    }));
+  });
 
-          {book.title}
-        </Text>
-      </Box>
-    ));
-  };
-
-  const findBookQuestions = contentBookOfQuestions.find(
-    (book) => book.id === 1
-  );
-
-  const rendeQuestions = () => {
-    return findBookQuestions?.questions.map((question) => (
-      <Box key={question.questionNumber}>
+  const renderBookResponses = (bookIndex: number) => {
+    return bookResponses[bookIndex]?.map((question, index) => (
+      <Box
+        sx={{
+          marginTop: 4,
+        }}
+        key={`${question.question}_${index}`}
+      >
         <Text variant="h1" color="var(--black)" fontSize={20} fontWeight={600}>
           {question.question}
         </Text>
@@ -59,41 +48,15 @@ export default function Responses() {
     ));
   };
 
+  const tabs = [
+    { label: bookTitles[0], content: renderBookResponses(0) },
+    { label: bookTitles[1], content: renderBookResponses(1) },
+    { label: bookTitles[2], content: renderBookResponses(2) },
+  ];
+
   return (
-    <Box className={styles.container}>
-      <Box>{renderBooksTitle()}</Box>
-
-      {rendeQuestions()}
-
-      {/* <Box>
-        {questionBookFindById?.questions.map((question) => (
-          <Box key={question.questionNumber}>
-            <Text
-              variant="h1"
-              color="var(--black)"
-              fontSize={20}
-              fontWeight={600}
-            >
-              {question.question}
-            </Text>
-
-            <Box
-              display="flex"
-              flexDirection="column"
-              marginY={2}
-              className={styles.divider}
-            >
-              <Text color="var(--gray-400)" variant="body1" marginBottom={2.5}>
-                Resposta:
-              </Text>
-
-              <Text color="var(--gray-400)" variant="body1" marginBottom={4}>
-                {question.answer}
-              </Text>
-            </Box>
-          </Box>
-        ))}
-      </Box> */}
+    <Box>
+      <TabsComponent tabs={tabs} />
     </Box>
   );
 }

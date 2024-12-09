@@ -7,5 +7,6 @@ export interface Question {
 export interface BookOfQuestions {
   id: number;
   title: string;
+  status?: string;
   questions: Question[];
 }

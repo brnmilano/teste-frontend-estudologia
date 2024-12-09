@@ -8,6 +8,7 @@ import { QuestionsProps } from "@/types/questions";
 import clsx from "clsx";
 import styles from "./styles.module.scss";
 import Text from "@/components/Text";
+import { useQuestions } from "@/hooks/useQuestions";
 
 function ContentCard({
   icon,
@@ -17,10 +18,13 @@ function ContentCard({
   title,
 }: Readonly<QuestionsProps>) {
   const router = useRouter();
+  const { questionBook } = useQuestions();
 
   const navigationForQuestions = async (id: number) => {
     router.push(`/questoes/${id}`);
   };
+
+  const findStatus = questionBook?.find((book) => book.id === id)?.status;
 
   return (
     <Card classes={{ root: styles.cardRoot }}>
@@ -32,19 +36,13 @@ function ContentCard({
             {title}
           </Text>
 
-          <Box
-            className={clsx(
-              styles.status,
-              status === "Respondido" ? styles.answered : styles.notAnswered
-            )}
-          >
+          <Box>
             <Text
               fontSize={12}
-              color={
-                status === "Respondido"
-                  ? "var(--green-400)"
-                  : "var(--orange-400)"
-              }
+              className={clsx(
+                styles.status,
+                status === findStatus ? styles.notAnswered : styles.answered
+              )}
             >
               {status}
             </Text>

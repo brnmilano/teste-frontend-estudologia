@@ -1,14 +1,16 @@
-import TabsComponent from "@/components/Tabs";
 import { Box } from "@mui/material";
 import { memo } from "react";
+import TabsComponent from "@/components/Tabs/CustomTabs";
 import styles from "./styles.module.scss";
 import Head from "next/head";
-import Modal from "@/components/Modal";
-import { useCommon } from "@/hooks/useCommon";
-import { Button } from "@/components/Button";
+import Questions from "@/components/Sections/Questions";
+import Responses from "@/components/Sections/Responses";
 
 function Home() {
-  const { openModal, setOpenModal } = useCommon();
+  const tabs = [
+    { label: "Questões", content: <Questions /> },
+    { label: "Respostas", content: <Responses /> },
+  ];
 
   return (
     <>
@@ -18,7 +20,7 @@ function Home() {
       </Head>
 
       <Box className={styles.container}>
-        <TabsComponent />
+        <TabsComponent tabs={tabs} />
       </Box>
     </>
   );

@@ -4,15 +4,16 @@ export const contentBookOfQuestions: BookOfQuestions[] = [
   {
     id: 1,
     title: "Título do Caderno de Questões 1",
+    status: "Não respondido",
     questions: [
       {
         questionNumber: 1,
-        question: "Descrição da pergunta 1 - Caderno de Questões número 1",
+        question: "Título da pergunta 01",
         answer: "",
       },
       {
         questionNumber: 2,
-        question: "Descrição da pergunta 2 - Caderno de Questões número 1",
+        question: "Título da pergunta 02",
         answer: "",
       },
     ],
@@ -20,20 +21,21 @@ export const contentBookOfQuestions: BookOfQuestions[] = [
   {
     id: 2,
     title: "Título do Caderno de Questões 2",
+    status: "Não respondido",
     questions: [
       {
         questionNumber: 1,
-        question: "Descrição da pergunta 1 - Caderno de Questões número 2",
+        question: "Título da pergunta 01",
         answer: "",
       },
       {
         questionNumber: 2,
-        question: "Descrição da pergunta 2 - Caderno de Questões número 2",
+        question: "Título da pergunta 02",
         answer: "",
       },
       {
         questionNumber: 3,
-        question: "Descrição da pergunta 3 - Caderno de Questões número 2",
+        question: "Título da pergunta 03",
         answer: "",
       },
     ],
@@ -41,25 +43,26 @@ export const contentBookOfQuestions: BookOfQuestions[] = [
   {
     id: 3,
     title: "Título do Caderno de Questões 3",
+    status: "Não respondido",
     questions: [
       {
         questionNumber: 1,
-        question: "Descrição da pergunta 1 - Caderno de Questões número 3",
+        question: "Título da pergunta 01",
         answer: "",
       },
       {
         questionNumber: 2,
-        question: "Descrição da pergunta 2 - Caderno de Questões número 3",
+        question: "Título da pergunta 02",
         answer: "",
       },
       {
         questionNumber: 3,
-        question: "Descrição da pergunta 3 - Caderno de Questões número 3",
+        question: "Título da pergunta 03",
         answer: "",
       },
       {
         questionNumber: 4,
-        question: "Descrição da pergunta 4 - Caderno de Questões número 3",
+        question: "Título da pergunta 04",
         answer: "",
       },
     ],
