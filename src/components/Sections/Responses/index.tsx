@@ -1,7 +1,7 @@
-import Text from "@/components/Text";
 import { useQuestions } from "@/hooks/useQuestions";
 import { Box } from "@mui/material";
 import TabsComponent from "@/components/Tabs/CustomTabs";
+import Text from "@/components/Text";
 import styles from "./styles.module.scss";
 
 export default function Responses() {

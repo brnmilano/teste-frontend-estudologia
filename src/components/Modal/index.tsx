@@ -3,7 +3,6 @@ import {
   Modal as ModalMUI,
   ModalProps as ModalMUIProps,
 } from "@mui/material";
-import styles from "./styles.module.scss";
 
 export type ModalProps = ModalMUIProps & {
   borderRadius?: string;

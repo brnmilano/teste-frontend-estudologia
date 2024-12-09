@@ -1,4 +1,5 @@
 import { PropsWithChildren } from "react";
+import { Box } from "@mui/material";
 import clsx from "clsx";
 import styles from "./styles.module.scss";
 
@@ -10,5 +11,5 @@ export default function Container({
   children,
   className,
 }: PropsWithChildren<Props>) {
-  return <div className={clsx(styles.container, className)}>{children}</div>;
+  return <Box className={clsx(styles.container, className)}>{children}</Box>;
 }

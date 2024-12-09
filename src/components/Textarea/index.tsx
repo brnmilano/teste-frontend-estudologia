@@ -29,9 +29,6 @@ interface ControlledTextFieldProps extends Omit<TextFieldProps, "name"> {
   errors: FieldErrors<any>;
 }
 
-/**
- * Componente TextField controlado usando Material-UI e React Hook Form.
- */
 export function ControlledTextField({
   control,
   registerField,
