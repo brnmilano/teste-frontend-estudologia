@@ -16,8 +16,6 @@ function ContentCard({
   status,
   title,
 }: Readonly<QuestionsProps>) {
-  const { loading } = useCommon();
-
   const router = useRouter();
 
   const navigationForQuestions = async (id: number) => {
@@ -59,9 +57,7 @@ function ContentCard({
           </Text>
         </Box>
 
-        <Button onClick={() => navigationForQuestions(id)} loading={loading}>
-          Responder
-        </Button>
+        <Button onClick={() => navigationForQuestions(id)}>Responder</Button>
       </CardContent>
     </Card>
   );

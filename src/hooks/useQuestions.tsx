@@ -1,5 +1,6 @@
+import { getCookie, setCookie } from "cookies-next";
 import { questionBookKey } from "@/types/keys";
-import { BookOfQuestions } from "@/types/questionsBook";
+import type { BookOfQuestions } from "@/types/questionsBook";
 import { contentBookOfQuestions } from "@/utils/questionsLists";
 import {
   Dispatch,
@@ -18,26 +19,28 @@ interface useQuestionsProps {
 interface QuestionsContextData {
   questionBook: BookOfQuestions[];
   setQuestionBook: Dispatch<SetStateAction<BookOfQuestions[]>>;
+  step: number;
+  setStep: Dispatch<SetStateAction<number>>;
 }
 
 export const QuestionsContext = createContext({} as QuestionsContextData);
 
 function QuestionsProvider({ children }: useQuestionsProps) {
-  const [questionBook, setQuestionBook] = useState<BookOfQuestions[]>(() => {
-    if (typeof window !== "undefined") {
-      const storedQuestions = localStorage.getItem(questionBookKey);
+  const [step, setStep] = useState(1);
 
-      return storedQuestions
-        ? JSON.parse(storedQuestions)
-        : contentBookOfQuestions;
-    }
-    return contentBookOfQuestions;
+  const [questionBook, setQuestionBook] = useState<BookOfQuestions[]>(() => {
+    const storedQuestions = getCookie(questionBookKey);
+
+    return storedQuestions
+      ? JSON.parse(storedQuestions as string)
+      : contentBookOfQuestions;
   });
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem(questionBookKey, JSON.stringify(questionBook));
-    }
+    setCookie(questionBookKey, JSON.stringify(questionBook), {
+      path: "/",
+      maxAge: 60 * 10,
+    });
   }, [questionBook]);
 
   return (
@@ -45,6 +48,8 @@ function QuestionsProvider({ children }: useQuestionsProps) {
       value={{
         questionBook,
         setQuestionBook,
+        step,
+        setStep,
       }}
     >
       {children}

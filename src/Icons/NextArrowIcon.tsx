@@ -1,11 +1,13 @@
 interface Props {
   size?: number;
   color?: string;
+  disabled?: boolean;
 }
 
 export default function NextArrowIcon({
   size = 18,
   color = "#7D8DA6",
+  disabled,
 }: Readonly<Props>) {
   return (
     <svg
@@ -17,13 +19,13 @@ export default function NextArrowIcon({
     >
       <path
         d="M13 11.5L17 6.5L13.3636 1.5"
-        stroke={color}
+        stroke={disabled ? "#e3dfef" : color}
         strokeWidth="1.5"
         strokeLinecap="round"
       />
       <path
         d="M1 6.5H16.278"
-        stroke={color}
+        stroke={disabled ? "#e3dfef" : color}
         strokeWidth="1.5"
         strokeLinecap="round"
       />

@@ -15,15 +15,15 @@ const chivo = Chivo({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <Container className={chivo.className}>
-      <CommonProvider>
-        <QuestionsProvider>
+      <QuestionsProvider>
+        <CommonProvider>
           <Toaster position="top-center" />
 
           <Header />
 
           <Component {...pageProps} />
-        </QuestionsProvider>
-      </CommonProvider>
+        </CommonProvider>
+      </QuestionsProvider>
     </Container>
   );
 }

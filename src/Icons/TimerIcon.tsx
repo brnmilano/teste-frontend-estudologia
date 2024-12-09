@@ -1,33 +1,33 @@
 interface Props {
   size?: number;
   color?: string;
-  disabled?: boolean;
 }
 
-export default function PreviousArrowIcon({
-  size = 18,
+export default function TimerIcon({
+  size = 24,
   color = "#7D8DA6",
-  disabled,
 }: Readonly<Props>) {
   return (
     <svg
       width={size}
       height={size}
-      viewBox="0 0 18 13"
+      viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M5 1.5L1 6.5L4.63637 11.5"
-        stroke={disabled ? "#e3dfef" : color}
+        d="M22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2C17.52 2 22 6.48 22 12Z"
+        stroke={color}
         strokeWidth="1.5"
         strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
-        d="M17 6.5L1.72199 6.5"
-        stroke={disabled ? "#e3dfef" : color}
+        d="M15.7099 15.18L12.6099 13.33C12.0699 13.01 11.6299 12.24 11.6299 11.61V7.51001"
+        stroke={color}
         strokeWidth="1.5"
         strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

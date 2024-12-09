@@ -1,4 +1,3 @@
-import { remainingTimeKey } from "@/types/keys";
 import { startTimer } from "@/utils/timer";
 import {
   Dispatch,
@@ -10,50 +9,48 @@ import {
   useState,
 } from "react";
 import toast from "react-hot-toast";
+import { useQuestions } from "./useQuestions";
 
 interface useCommonProps {
   children: ReactNode;
 }
 
 interface CommonContextData {
-  loading: boolean;
-  setLoading: Dispatch<SetStateAction<boolean>>;
   minutes: string;
   seconds: string;
+  openModal: boolean;
+  setOpenModal: Dispatch<SetStateAction<boolean>>;
 }
 
 export const CommonContext = createContext({} as CommonContextData);
 
 function CommonProvider({ children }: useCommonProps) {
+  const { step } = useQuestions();
+
   const totalMinutes = 25;
 
-  const [loading, setLoading] = useState(false);
+  const [openModal, setOpenModal] = useState<boolean>(false);
+
   const [time, setTime] = useState(totalMinutes * 60);
+  const [timerInterval, setTimerInterval] = useState<NodeJS.Timeout | null>(
+    null
+  );
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      try {
-        const storageStateAsJSON = localStorage.getItem(remainingTimeKey);
+    setTime(totalMinutes * 60);
 
-        setTime(storageStateAsJSON ? JSON.parse(storageStateAsJSON) : []);
-      } catch (error) {
-        const parsedError =
-          error instanceof Error ? error : new Error(String(error));
-
-        toast.error(parsedError.message);
-      }
+    if (timerInterval) {
+      clearInterval(timerInterval);
     }
-  }, []);
 
-  useEffect(() => {
-    const timerInterval = startTimer(
+    const newTimerInterval = startTimer(
       totalMinutes,
       (updatedTime) => setTime(updatedTime),
       () => toast.error("Tempo esgotado!")
     );
 
-    return () => clearInterval(timerInterval);
-  }, [totalMinutes]);
+    setTimerInterval(newTimerInterval);
+  }, [step]);
 
   const minutes = Math.floor(time / 60)
     .toString()
@@ -63,10 +60,10 @@ function CommonProvider({ children }: useCommonProps) {
   return (
     <CommonContext.Provider
       value={{
-        loading,
-        setLoading,
         minutes,
         seconds,
+        openModal,
+        setOpenModal,
       }}
     >
       {children}
@@ -78,5 +75,4 @@ function useCommon() {
   return useContext(CommonContext);
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
 export { useCommon, CommonProvider };

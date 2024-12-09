@@ -23,15 +23,11 @@
   }
 
   &.butonSizeMedium {
-    max-width: 11.5rem;
+    max-width: 15rem;
   }
 
   .progressBar {
     position: absolute;
-  }
-
-  .loading {
-    background-color: var(--blue-500);
   }
 }
 
@@ -49,5 +45,35 @@
       background-color: transparent;
       border: 1px solid var(--primary);
     }
+  }
+}
+
+.buttonText {
+  color: var(--gray-400);
+  text-transform: none;
+  font-family: var(--font-family);
+  font-size: 0.875rem;
+  font-weight: 400;
+  height: 20px;
+  transition: none;
+
+  &:disabled {
+    color: var(--disabled);
+  }
+}
+
+.buttonContained {
+  background-color: transparent;
+  color: var(--primary);
+  text-transform: none;
+  box-shadow: none;
+  border: 1px solid var(--primary);
+  font-weight: 600;
+  width: 200px;
+  border-radius: 36px;
+  height: 2rem;
+
+  &:hover {
+    box-shadow: none;
   }
 }

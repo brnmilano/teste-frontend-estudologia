@@ -1,6 +1,11 @@
 import { createElement } from "react";
 import type { QuestionsProps } from "@/types/questions";
 import PencilIconSvg from "@/Icons/PencilIcon";
+import { contentBookOfQuestions } from "./questionsLists";
+
+const questionsQuantity = contentBookOfQuestions.map(
+  (book) => book.questions.length
+);
 
 export const questionsCard: QuestionsProps[] = [
   {
@@ -8,20 +13,20 @@ export const questionsCard: QuestionsProps[] = [
     icon: createElement(PencilIconSvg),
     title: "Título do caderno de questões 1",
     status: "Respondido",
-    questions: 10,
+    questions: questionsQuantity[0],
   },
   {
     id: 2,
     icon: createElement(PencilIconSvg),
     title: "Título do caderno de questões 2",
     status: "Não respondido",
-    questions: 5,
+    questions: questionsQuantity[1],
   },
   {
     id: 3,
     icon: createElement(PencilIconSvg),
     title: "Título do caderno de questões 3",
     status: "Respondido",
-    questions: 3,
+    questions: questionsQuantity[2],
   },
 ];

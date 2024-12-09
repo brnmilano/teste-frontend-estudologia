@@ -15,6 +15,9 @@ export default function Text({
       fontWeight={fontWeight}
       sx={{
         fontFamily: "var(--font-family)",
+        display: "flex",
+        alignItems: "center",
+        gap: "8px",
       }}
     >
       {children}

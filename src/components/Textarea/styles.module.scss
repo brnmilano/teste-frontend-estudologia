@@ -3,7 +3,7 @@
   color: var(--black);
   font-size: 1rem;
   font-family: "Chivo", sans-serif !important;
-  background-color: var(--background);
+
   outline: none !important;
 
   > div {
@@ -16,6 +16,14 @@
     &:hover {
       outline: none !important;
     }
+  }
+
+  input {
+    background-color: var(--background);
+  }
+
+  p {
+    margin: 5px 0 0;
   }
 }
 

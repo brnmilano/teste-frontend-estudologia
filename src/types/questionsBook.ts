@@ -1,11 +1,11 @@
-type Question = {
+export interface Question {
   questionNumber: number;
   question: string;
-};
+  answer?: string;
+}
 
-export type BookOfQuestions = {
+export interface BookOfQuestions {
   id: number;
   title: string;
   questions: Question[];
-  answer?: string;
-};
+}

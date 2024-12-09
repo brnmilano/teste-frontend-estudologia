@@ -1,5 +1,3 @@
-import { remainingTimeKey } from "@/types/keys";
-
 /**
  * Inicia um timer que conta a partir de um tempo total em minutos.
  *
@@ -15,23 +13,13 @@ export function startTimer(
 ): NodeJS.Timeout {
   let totalSeconds = totalMinutes * 60;
 
-  const storedTime = localStorage.getItem(remainingTimeKey);
-
-  if (storedTime) {
-    totalSeconds = parseInt(storedTime, 10);
-  }
-
   const timerInterval = setInterval(() => {
     if (totalSeconds <= 0) {
       clearInterval(timerInterval);
 
-      localStorage.removeItem(remainingTimeKey);
-
       if (onComplete) onComplete();
     } else {
       totalSeconds--;
-
-      localStorage.setItem(remainingTimeKey, totalSeconds.toString());
 
       updateTime(totalSeconds);
     }

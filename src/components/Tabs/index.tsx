@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, ReactNode, useState } from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
@@ -7,7 +7,7 @@ import Questions from "../Sections/Questions";
 import Responses from "../Sections/Responses";
 
 interface TabPanelProps {
-  children?: React.ReactNode;
+  children?: ReactNode;
   index: number;
   value: number;
 }
@@ -16,23 +16,10 @@ function CustomTabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
 
   return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
+    <div role="tabpanel" hidden={value !== index} {...other}>
       {value === index && <Box sx={{ pt: 3 }}>{children}</Box>}
     </div>
   );
-}
-
-function a11yProps(index: number) {
-  return {
-    id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`,
-  };
 }
 
 function TabsComponent() {
@@ -60,7 +47,6 @@ function TabsComponent() {
               selected: styles.selectedTab,
             }}
             label="Questões"
-            {...a11yProps(0)}
           />
 
           <Tab
@@ -69,7 +55,6 @@ function TabsComponent() {
               selected: styles.selectedTab,
             }}
             label="Respostas"
-            {...a11yProps(1)}
           />
         </Tabs>
       </Box>

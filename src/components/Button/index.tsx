@@ -1,14 +1,18 @@
 import {
   Button as ButtonMUI,
-  CircularProgress,
   ButtonProps as MaterialButtonProps,
 } from "@mui/material";
 import clsx from "clsx";
 import styles from "./styles.module.scss";
 
 interface ButtonProps extends MaterialButtonProps {
-  loading?: boolean;
-  theme?: "primary" | "secondary";
+  /**
+   * Define o tema do botão.
+   */
+  theme?: "primary" | "secondary" | "";
+  /**
+   * Define o tamanho do botão.
+   */
   size?: "medium" | "large";
 }
 
@@ -18,7 +22,6 @@ export function Button({
   color = "primary",
   size = "large",
   variant = "outlined",
-  loading,
   disabled,
   ...rest
 }: Readonly<ButtonProps>) {
@@ -36,10 +39,11 @@ export function Button({
       }`}
       classes={{
         ...rest.classes,
-        startIcon: clsx(styles.startIcon, rest.classes?.startIcon),
         outlined: clsx(outlinedButtonColor, rest.classes?.outlined),
+        contained: clsx(styles.buttonContained, rest.classes?.contained),
         sizeLarge: clsx(styles.buttonSizeLarge, rest.classes?.sizeLarge),
         sizeMedium: clsx(styles.butonSizeMedium, rest.classes?.sizeMedium),
+        text: clsx(styles.buttonText, rest.classes?.text),
       }}
       color={color}
       size={size}
@@ -47,15 +51,7 @@ export function Button({
       variant={variant}
       disabled={disabled}
     >
-      <p style={{ color: loading ? "transparent" : undefined }}>{children}</p>
-
-      {loading ? (
-        <CircularProgress
-          className={styles.progressBar}
-          size={20}
-          color="inherit"
-        />
-      ) : null}
+      <p>{children}</p>
     </ButtonMUI>
   );
 }
